@@ -2,21 +2,21 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'core/puzzle_proxy.dart';
-import 'core/util.dart';
-import 'flutter.dart';
-import 'shared_theme.dart';
+import '../core/puzzle_proxy.dart';
+import '../core/util.dart';
+import '../flutter.dart';
+import '../shared_theme.dart';
 
 const _accentBlue = Color(0xff000579);
 
-class ThemeHindi extends SharedTheme {
+class ThemeArabic extends SharedTheme {
   @override
-  String get name => 'Hindi';
+  String get name => 'Arabic';
 
   @override
-  PuzzleType get puzzleType => PuzzleType.hindi;
+  PuzzleType get puzzleType => PuzzleType.arabic;
 
-  const ThemeHindi();
+  const ThemeArabic();
 
   @override
   Color get puzzleThemeBackground => Colors.white;
@@ -54,7 +54,7 @@ class ThemeHindi extends SharedTheme {
     final content = createInk(
       Center(
         child: Text(
-          replaceHindiNumber((i + 1).toString()),
+          replaceFarsiNumber((i + 1).toString()),
           // String.fromCharCode(i + 65), // A=65
           // (i + 1).toString(),
           style: TextStyle(

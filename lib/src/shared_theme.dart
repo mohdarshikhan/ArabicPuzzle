@@ -100,30 +100,48 @@ abstract class SharedTheme {
     Expanded(
       child: Container(),
     ),
-    RichText(
-      text: TextSpan(
-        children: [
-          TextSpan(
-            text: getNumber(controls.clickCount, puzzleType), //controls.clickCount.toString(),
-            style: _infoStyle,
-          ),
-          const TextSpan(text: ' Moves'),
-        ],
-      ),
+    Tooltip(
+      message: 'Total Moves',
+      child: getRichText(controls.clickCount, ' Moves', puzzleType, _infoStyle)
+      // child: RichText(
+      //   text: TextSpan(
+      //     children: [
+      //       TextSpan(
+      //         text: getNumber(controls.clickCount, puzzleType), //controls.clickCount.toString(),
+      //         style: _infoStyle,
+      //       ),
+      //       const TextSpan(text: ' Moves',
+      //           style: TextStyle(
+      //             color: Colors.black,
+      //             fontWeight: FontWeight.normal,
+      //           )
+      //       ),
+      //     ],
+      //   ),
+      // ),
     ),
-    SizedBox(
-      width: 90,
-      child: RichText(
-        textAlign: TextAlign.right,
-        text: TextSpan(
-          children: [
-            TextSpan(
-              text: getNumber(controls.incorrectTiles, puzzleType), //controls.incorrectTiles.toString(),
-              style: _infoStyle,
-            ),
-            const TextSpan(text: ' Tiles left'),
-          ],
-        ),
+    Tooltip(
+      message: 'Tiles left to move correct place',
+      child: SizedBox(
+        width: 90,
+        child: getRichText(controls.incorrectTiles, ' Tiles left', puzzleType, _infoStyle)
+        // RichText(
+        //   textAlign: TextAlign.right,
+        //   text: TextSpan(
+        //     children: [
+        //       TextSpan(
+        //         text: getNumber(controls.incorrectTiles, puzzleType), //controls.incorrectTiles.toString(),
+        //         style: _infoStyle,
+        //       ),
+        //       TextSpan(text: getText(' Tiles left', puzzleType),
+        //           style: TextStyle(
+        //             color: Colors.black,
+        //             fontWeight: FontWeight.normal,
+        //           )
+        //       ),
+        //     ],
+        //   ),
+        // ),
       ),
     ),
   ];

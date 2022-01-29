@@ -13,7 +13,7 @@ import 'flutter.dart';
 import 'puzzle_controls.dart';
 import 'puzzle_flow_delegate.dart';
 import 'shared_theme.dart';
-import 'themes.dart';
+import 'package:arabicpuzzle/src/themes/themes.dart';
 import 'value_tab_controller.dart';
 
 class _PuzzleControls extends ChangeNotifier implements PuzzleControls {
@@ -169,6 +169,7 @@ class PuzzleHomeState extends State
 
       if (puzzle.solved) {
         _setAutoPlay(false);
+        // Todo Show Puzzle Solved Dialog
       }
     }
   }

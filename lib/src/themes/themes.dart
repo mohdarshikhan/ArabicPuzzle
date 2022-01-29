@@ -2,10 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'theme_simple.dart';
-import 'theme_arabic.dart';
-import 'theme_hindi.dart';
-import 'theme_alphabetic.dart';
+import 'package:arabicpuzzle/src/themes/theme_simple.dart';
+import 'package:arabicpuzzle/src/themes/theme_arabic.dart';
+import 'package:arabicpuzzle/src/themes/theme_hindi.dart';
+import 'package:arabicpuzzle/src/themes/theme_alphabetic.dart';
 
 const themes = [
   ThemeArabic(),

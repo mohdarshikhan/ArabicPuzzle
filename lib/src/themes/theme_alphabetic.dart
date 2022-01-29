@@ -2,21 +2,20 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'core/puzzle_proxy.dart';
-import 'core/util.dart';
-import 'flutter.dart';
-import 'shared_theme.dart';
+import '../core/puzzle_proxy.dart';
+import '../flutter.dart';
+import '../shared_theme.dart';
 
 const _accentBlue = Color(0xff000579);
 
-class ThemeArabic extends SharedTheme {
+class ThemeAlphabetic extends SharedTheme {
   @override
-  String get name => 'Arabic';
+  String get name => 'Alphabetic';
 
   @override
-  PuzzleType get puzzleType => PuzzleType.arabic;
+  PuzzleType get puzzleType => PuzzleType.alphabetic;
 
-  const ThemeArabic();
+  const ThemeAlphabetic();
 
   @override
   Color get puzzleThemeBackground => Colors.white;
@@ -54,9 +53,7 @@ class ThemeArabic extends SharedTheme {
     final content = createInk(
       Center(
         child: Text(
-          replaceFarsiNumber((i + 1).toString()),
-          // String.fromCharCode(i + 65), // A=65
-          // (i + 1).toString(),
+          String.fromCharCode(i + 65), // A=65
           style: TextStyle(
             color: Colors.white,
             fontWeight: correctPosition ? FontWeight.bold : FontWeight.normal,

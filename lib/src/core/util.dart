@@ -5,6 +5,7 @@
 // import 'dart:convert';
 
 import 'package:arabicpuzzle/src/core/puzzle_proxy.dart';
+import 'package:arabicpuzzle/src/flutter.dart';
 
 void requireArgument(bool truth, String argName, [String? message]) {
   if (!truth) {
@@ -86,9 +87,80 @@ String replaceHindiNumber(String input) {
 String getNumber(int number, PuzzleType type) {
   if (type == PuzzleType.arabic) {
     return replaceFarsiNumber(number.toString());
-  } if (type == PuzzleType.hindi) {
+  } else if (type == PuzzleType.hindi) {
     return replaceHindiNumber(number.toString());
   } else {
     return number.toString();
+  }
+}
+
+String getText(String text, PuzzleType type, String prefixText) {
+
+  // if (prefixText.isNotEmpty) {
+  //   return prefixText +" "+text;
+  // } else {
+  //   return text;
+  // }
+
+
+  // Todo handle text according language
+  if (type == PuzzleType.arabic && text == " Tiles left") {
+    return prefixText+" ترك البلاط";
+  } else if (type == PuzzleType.arabic && text == " Moves") {
+    return prefixText+" التحركات";
+  } else if (type == PuzzleType.hindi && text == " Tiles left") {
+    return prefixText +" टाइलें बची हैं ";
+  } else if (type == PuzzleType.hindi && text == " Moves") {
+    return prefixText +" चालें ";
+  } else {
+    return prefixText +" "+text;
+  }
+}
+
+TextSpan getTextSpan(int incorrectTiles, String text, PuzzleType type, TextStyle _infoStyle) {
+  if (type == PuzzleType.arabic) {
+    return TextSpan(
+      children: [
+        // TextSpan(text: getText(text, type, ""),
+        //     style: TextStyle(
+        //       color: Colors.black,
+        //       fontWeight: FontWeight.normal,
+        //     )
+        // ),
+        TextSpan(
+          text: getText(text, type, getNumber(incorrectTiles, type)), //controls.incorrectTiles.toString(),
+          style: _infoStyle,
+        ),
+      ],
+    );
+  } else {
+    return TextSpan(
+      children: [
+        TextSpan(
+          text: getText(text, type, getNumber(incorrectTiles, type)), //controls.incorrectTiles.toString(),
+          style: _infoStyle,
+        ),
+        // TextSpan(text: getText(text, type, ),
+        //     style: TextStyle(
+        //       color: Colors.black,
+        //       fontWeight: FontWeight.normal,
+        //     )
+        // ),
+      ],
+    );
+  }
+}
+
+RichText getRichText(int incorrectTiles, String text, PuzzleType type, TextStyle _infoStyle){
+  if (type == PuzzleType.arabic) {
+    return RichText(
+        textAlign: TextAlign.right,
+        text: getTextSpan(incorrectTiles, text, type, _infoStyle)
+    );
+  } else {
+    return RichText(
+        textAlign: TextAlign.right,
+        text: getTextSpan(incorrectTiles, text, type, _infoStyle)
+    );
   }
 }
