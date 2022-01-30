@@ -164,3 +164,13 @@ RichText getRichText(int incorrectTiles, String text, PuzzleType type, TextStyle
     );
   }
 }
+
+String getBackgroundImage(PuzzleType type) {
+  if (type == PuzzleType.arabic) {
+    return 'images/flutter.jpg';
+  } else if (type == PuzzleType.hindi) {
+    return 'images/flutter.jpg';
+  } else {
+    return 'images/flutter.jpg';
+  }
+}

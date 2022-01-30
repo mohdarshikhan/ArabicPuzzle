@@ -8,6 +8,10 @@ import '../flutter.dart';
 import '../shared_theme.dart';
 
 const _accentBlue = Color(0xff000579);
+const borderColor = Color.fromARGB(100, 11, 198, 249);
+const themeColor = Color.fromARGB(100, 11, 198, 249);
+const puzzleColor = Color.fromARGB(100, 11, 198, 249);
+const buttonColor = Color.fromARGB(255, 4, 87, 153);
 
 class ThemeSimple extends SharedTheme {
   @override
@@ -19,22 +23,25 @@ class ThemeSimple extends SharedTheme {
   const ThemeSimple();
 
   @override
-  Color get puzzleThemeBackground => Colors.white;
+  Color get puzzleThemeBackground => themeColor;
 
   @override
-  Color get puzzleBackgroundColor => Colors.white70;
+  Color get puzzleBackgroundColor => puzzleColor; //Colors.white70;
 
   @override
   Color get puzzleAccentColor => _accentBlue;
 
   @override
-  RoundedRectangleBorder puzzleBorder(bool small) =>
-      const RoundedRectangleBorder(
-        side: BorderSide(color: Colors.black26, width: 1),
-        borderRadius: BorderRadius.all(
-          Radius.circular(4),
-        ),
-      );
+  RoundedRectangleBorder puzzleBorder(bool small) => RoundedRectangleBorder(
+    side: const BorderSide(
+      // color: Color.fromARGB(255, 103, 103, 105),
+      color: Color.fromARGB(100, 11, 198, 249),
+      width: 5,
+    ),
+    borderRadius: BorderRadius.all(
+      Radius.circular(small ? 10 : 18),
+    ),
+  );
 
   @override
   Widget tileButton(int i, PuzzleProxy puzzle, bool small) {
@@ -44,7 +51,7 @@ class ThemeSimple extends SharedTheme {
         child: Icon(
           Icons.thumb_up,
           size: 72,
-          color: _accentBlue,
+          color: buttonColor,
         ),
       );
     }
@@ -71,7 +78,7 @@ class ThemeSimple extends SharedTheme {
       small,
       i,
       content,
-      color: const Color.fromARGB(255, 13, 87, 155),
+      color: buttonColor,
     );
   }
 

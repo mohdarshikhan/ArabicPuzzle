@@ -8,6 +8,15 @@ import '../flutter.dart';
 import '../shared_theme.dart';
 
 const _accentBlue = Color(0xff000579);
+// const borderColor = Color.fromARGB(100, 2, 229, 159);
+// const themeColor = Color.fromARGB(100, 11, 198, 249);
+// const puzzleColor = Color.fromARGB(100, 1, 153, 103);
+// const buttonColor = Color.fromARGB(255, 4, 87, 153);
+
+const borderColor = Color.fromARGB(100, 11, 198, 249);
+const themeColor = Color.fromARGB(100, 11, 198, 249);
+const puzzleColor = Color.fromARGB(100, 11, 198, 249);
+const buttonColor = Color.fromARGB(255, 4, 87, 153);
 
 class ThemeArabic extends SharedTheme {
   @override
@@ -19,22 +28,34 @@ class ThemeArabic extends SharedTheme {
   const ThemeArabic();
 
   @override
-  Color get puzzleThemeBackground => Colors.white;
+  Color get puzzleThemeBackground => themeColor;
 
   @override
-  Color get puzzleBackgroundColor => Colors.white70;
+  Color get puzzleBackgroundColor => puzzleColor; //Colors.white70;
 
   @override
   Color get puzzleAccentColor => _accentBlue;
 
   @override
-  RoundedRectangleBorder puzzleBorder(bool small) =>
-      const RoundedRectangleBorder(
-        side: BorderSide(color: Colors.black26, width: 1),
-        borderRadius: BorderRadius.all(
-          Radius.circular(4),
-        ),
-      );
+  RoundedRectangleBorder puzzleBorder(bool small) => RoundedRectangleBorder(
+    side: const BorderSide(
+      // color: Color.fromARGB(255, 103, 103, 105),
+      color: borderColor,
+      width: 5,
+    ),
+    borderRadius: BorderRadius.all(
+      Radius.circular(small ? 10 : 18),
+    ),
+  );
+
+  // @override
+  // RoundedRectangleBorder puzzleBorder(bool small) =>
+  //     const RoundedRectangleBorder(
+  //       side: BorderSide(color: Colors.black26, width: 1),
+  //       borderRadius: BorderRadius.all(
+  //         Radius.circular(4),
+  //       ),
+  //     );
 
   @override
   Widget tileButton(int i, PuzzleProxy puzzle, bool small) {
@@ -44,7 +65,7 @@ class ThemeArabic extends SharedTheme {
         child: Icon(
           Icons.thumb_up,
           size: 72,
-          color: _accentBlue,
+          color: buttonColor,
         ),
       );
     }
@@ -71,7 +92,8 @@ class ThemeArabic extends SharedTheme {
       small,
       i,
       content,
-      color: const Color.fromARGB(255, 13, 87, 155),
+      // color: const Color.fromARGB(255, 13, 87, 155),
+      color: buttonColor,
     );
   }
 }
