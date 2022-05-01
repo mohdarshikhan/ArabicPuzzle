@@ -1,6 +1,6 @@
 # arabicpuzzle
 
-Classical 15 Puzzle with new twist. Which is use Arabic number instead basic number.
+Flutter based Classical 15 Puzzle with new twist. Which is use Arabic number instead basic number.
 
 ## Getting Started
 
